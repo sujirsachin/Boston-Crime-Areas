@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<head>
+   <br>
+   <br>
+   <br>
+   <br>
+   <title>Boston Crime Search</title>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="static/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="static/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600|Raleway:600,300|Josefin+Slab:400,700,600italic,600,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="static/slick-team-slider.css" />
+  <link rel="stylesheet" type="text/css" href="static/style.css">
+
+</head>
+<style>
+    
+
+h1
+{font-size: 60px;
+font-family: 'Bookman';
+color: #fff;
+
+text-align: center;
+
+}
+h2
+{
+font-size: 40px;
+font-family: Arial, Helvetica, sans-serif;
+color: #fff;
+
+text-align: center;
+
+}
+h3{
+
+   font-family: Arial, Helvetica, sans-serif;
+   color:midnightblue;
+   }
+input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}
+
+ul{ list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  overflow: hidden;
+  
+     }
+
+     
+   li {
+  display: inline;
+
+  
+}
+li a {
+  display: inline;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    color: #354242;
+    background-color: #fff;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    border-bottom: 2px solid #E74C3C;
+    outline: none;
+}
+
+.navbar-brand{
+  text:#E74C3C;
+
+}
+</style>
+
+<body style ="background: url(http://korylaw.com/wp-content/uploads/2015/05/violent-crimes-attorney-for-inland-empire-san-bernardino-riverside.jpg); background-size: 100%"> 
+ <!--HEADER START-->
+
+ <div class="main-navigation navbar-fixed-top">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+             </button>
+            <a class="navbar-brand" href="{{ url_for('my_redirect', _anchor='my_anchor') }}">Crimes</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="{{ url_for('my_redirect', _anchor='my_anchor') }}">Home</a></li>
+  
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!--HEADER END-->
+    
+   
+
+   <header>
+      <div class="container">
+
+      <h1> Boston Crime Areas</h1>
+
+   </div>
+   </header>
+
+</div>
+   <div class="ml-container" style="text-align:center">
+
+      <form action="{{ url_for('details')}}" method="GET">
+      <center><h2>Find the Crime Location </h2></center>
+
+      <center><input type="text" name="message" rows="4" cols="50" placeholder="Enter The Area" style="margin:20px ; width: 50%"></input></center>
+      <input type="submit" class="btn btn-danger" value="search">
+          <br/>
+
+       <!--<a href="Boston_Crime.html"><input type="submit" class="btn-info" value="Search" align="center"></a> -->
+
+   </form>
+
+   </div>
+   <script src="static/jquery.min.js"></script>
+   <script src="static/jquery.easing.min.js"></script>
+   <script src="static/bootstrap.min.js"></script>
+   <script type="text/javascript" src="static/slick.min.js"></script>
+   <script type="text/javascript" src="static/custom.js"></script>
+   <script src="static/contactform.js"></script>
+ 
+
+
+</body>
+</html>

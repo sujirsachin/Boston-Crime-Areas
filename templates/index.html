@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" class=" js no-touch">
+
+<head>
+  <title>BOSTON Crime </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="static/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="static/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600|Raleway:600,300|Josefin+Slab:400,700,600italic,600,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="static/slick-team-slider.css" />
+  <link rel="stylesheet" type="text/css" href="static/style.css">
+
+</head>
+
+
+<body>
+  <!--HEADER START-->
+
+  <div class="main-navigation navbar-fixed-top">
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			  </button>
+          <a class="navbar-brand" href="{{ url_for('my_redirect', _anchor='my_anchor') }}">Crimes</a>
+		</a></div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="{{ url_for('my_redirect', _anchor='my_anchor') }}">Home</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!--HEADER END-->
+
+  <!--BANNER START-->
+  <div id="banner" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="jumbotron">
+          <center> <h1 class="small">Crimes in <span class="bold">BOSTON</span></h1> </center>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+         <center>
+			 <a href="{{ url_for('home') }}" class="btn btn-danger"  role="button">Go to search page</a>        <!--<button type="submit" >Go To Search Page </button></a> --> </center>
+          <div class="col-md-6 pull-left"> </div>
+       <!--  <button type="submit"><i class="fa fa-search"></i></button> -->
+        </div>
+        </div>
+      </div>
+    </div>
+  
+  <!--BANNER END-->
+
+  
+
+  <!--TEAM START-->
+  <div id="about" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="page-title text-center">
+          <h1>Our Vision & team</h1>
+          <p>Our project name is Crimes in Boston.It's a Search Engine application which searches the crime location in Boston along with the description and the location of the crime . A user can also report and submit their comments on our application. </p>
+          <hr class="pg-titl-bdr-btm"><hr>
+        </div>
+        <center><div class="autoplay">
+          
+                <div class="fig-caption">
+                <h3 >Sachin Sujir 
+                </h3>
+                <p class="marb-20" >M.S Graduate Student</p>
+                <br>
+                <h3>Parthivi Shrivastava</h3>
+                <p class="marb-20">M.S Graduate Student</p>
+                <br>
+                <h3>Himanshu Vinod Nirmal</h3>
+                <p class="marb-20">M.S Graduate Student</p>
+               
+                </div>
+             
+            
+          </div>
+          </center>
+          
+        
+
+        
+
+  
+            
+  <!--TEAM END-->
+
+  <!--CTA2 START-->
+  <div class="cta2">
+    <div class="container">
+      <div class="row white text-center">
+       <h3 class="wd75 fnt-24">“Do Report if you see something fishy. Stay cautious and ready!! " - Team 4</h3>
+        <p class="cta-sub-title"></p>
+        
+      </div>
+    </div>
+  </div>
+  <!--CTA2 END-->
+
+  
+
+  <!--FOOTER START-->
+  <footer class="footer section-padding">
+    <div class="container">
+      <div class="row">
+        <div style="visibility: visible; animation-name: zoomIn;" class="col-sm-12 text-center wow zoomIn">
+          <h3>Follow us on</h3>
+          <div class="footer_social">
+            <ul>
+              <li><a class="f_facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="f_twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="f_google" href="#"><i class="fa fa-google-plus"></i></a></li>
+              <li><a class="f_linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <!--- END COL -->
+      </div>
+      <!--- END ROW -->
+    </div>
+    <!--- END CONTAINER -->
+  </footer>
+  <!--FOOTER END-->
+  <div class="footer-bottom">
+    <div class="container">
+      <div style="visibility: visible; animation-name: zoomIn;" class="col-md-12 text-center wow zoomIn">
+        <div class="footer_copyright">
+          <p> © Copyright, All Rights Reserved By Team 4.</p>
+          <div class="credits">
+            
+            Designed by Team 4 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="static/jquery.min.js"></script>
+  <script src="static/jquery.easing.min.js"></script>
+  <script src="static/bootstrap.min.js"></script>
+  <script type="text/javascript" src="static/slick.min.js"></script>
+  <script type="text/javascript" src="static/custom.js"></script>
+  <script src="static/contactform.js"></script>
+
+</body>
+
+</html>

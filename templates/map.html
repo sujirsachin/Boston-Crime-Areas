@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Location of Crime</title>
+    <link rel="stylesheet" href="static/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600|Raleway:600,300|Josefin+Slab:400,700,600italic,600,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="static/slick-team-slider.css" />
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+  <div class="main-navigation navbar-fixed-top">
+                <nav class="navbar navbar-default">
+                  <div class="container">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                      <a class="navbar-brand" href="{{ url_for('my_redirect', _anchor='my_anchor') }}" >Crimes</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav navbar-right">
+                                    <li class="active"><a href="{{ url_for('my_redirect1', _anchor='my_anchor1') }}">Search</a></li>
+
+                                  </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="{{ url_for('my_redirect', _anchor='my_anchor') }}">Home</a></li>
+
+                      </ul>
+
+
+                    </div>
+                  </div>
+                </nav>
+              </div>
+    <div id="map"></div>
+    <script>
+
+      // This example displays a marker at the center of Australia.
+      // When the user clicks the marker, an info window opens.
+
+      function initMap() {
+
+      {% for la in lat %}
+      {% for lon in long %}
+        var loc = {lat: {{ la['Lat'] }}, lng: {{ lon['Long'] }} };
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 18,
+          center: loc,
+          mapTypeId: 'satellite',
+          styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
+        });
+
+        var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">{{ street }}</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Number of Crimes Reported Recently: {{ count }} </p></b>'+
+            '</div>'+
+            '</div>';
+  var tit=' {{ street }} '
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+          position: loc,
+          map: map,
+          title: tit
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+        {% endfor %}
+        {% endfor %}
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_jSDXYOQRIM7brw_U2DFp8gUzmh6Y6kg&region=JA&callback=initMap">
+    </script>
+   <script src="staitc/jquery.min.js"></script>
+            <script src="static/jquery.easing.min.js"></script>
+            <script src="static/bootstrap.min.js"></script>
+            <script type="text/javascript" src="static/slick.min.js"></script>
+            <script type="text/javascript" src="static/custom.js"></script>
+            <script src="static/contactform.js"></script>
+
+  </body>
+</html>

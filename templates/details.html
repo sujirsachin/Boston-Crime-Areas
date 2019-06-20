@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+    <title>Crime Details</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600|Raleway:600,300|Josefin+Slab:400,700,600italic,600,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="static/slick-team-slider.css" />
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <style>
+	h1{color:black}
+	h2 {color:black}
+   ul{ list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  overflow: hidden;
+
+  
+     }
+     header {
+  background-color: #FAE8E7;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+.details {
+  width: 50%;
+  border: 15px  solid black;
+  padding: 50px;
+  margin: 20px;
+}
+     
+   li {
+  display: inline;
+
+  
+}
+li a {
+  display: inline;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+	</style>
+    </head>
+    <body><div class="main-navigation navbar-fixed-top">
+                <nav class="navbar navbar-default">
+                  <div class="container">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                      <a class="navbar-brand" href="{{ url_for('my_redirect', _anchor='my_anchor') }}" >Crimes</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav navbar-right">
+                                    <li class="active"><a href="{{ url_for('my_redirect1', _anchor='my_anchor1') }}">Search</a></li>
+                        
+                                  </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="{{ url_for('my_redirect', _anchor='my_anchor') }}">Home</a></li>
+            
+                      </ul>
+                      
+                      
+                    </div>
+                  </div>
+                </nav>
+              </div>
+        <ul>
+            <li><a href="{{ url_for('my_redirect', _anchor='my_anchor') }}">Home</a></li>
+            <li><a href="{{ url_for('my_redirect1', _anchor='my_anchor1') }}">Search</a></li>
+            </ul>
+        <center><br><br><h1>Crime location</h1>
+          <img src="data:;base64, {{ img }}" height="50%" width="50%" alt="P">
+        <p> <header>
+            {% for s in street %}<h1>Name of Area:</h1> <h2>{{ s['STREET'] }} </h2> {% endfor %}
+<h1>Number of Crimes Reported Recently</h1> <h2>{{ count }} </h2></header></p>
+
+            <form action="{{ url_for('map')}}" >
+            <input type="submit" value="See Location" class="btn btn-danger">
+            </form>
+            {% for of in offence %}
+<div class="details">
+    <ol class="custom-counter"> <li>
+         <h2> Type of Incident: {{ of['OFFENSE_CODE_GROUP'] }}</h2>
+         <h2>Date and Time of Incident {{ of['OCCURRED_ON_DATE'] }}</h2>
+     </li>
+</ol>
+</div>
+    {% endfor %}
+
+            <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <form action="{{ url_for('comments')}}" method="GET">
+
+		 <div>
+             <input type="text" name="comments" id="comments" style="font-family:sans-serif;font-size:20px height:0%; margin: 10px" >
+
+
+            </div>
+
+        <input type="submit" value="Post and View comment" class="btn btn-danger">
+       </form>
+		<br><br>
+        <!-- <form action="/html/tags/html_form_tag_action.cfm" method="post"> -->
+         
+            
+             </center>
+            <script src="js/jquery.min.js"></script>
+            <script src="js/jquery.easing.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="js/slick.min.js"></script>
+            <script type="text/javascript" src="js/custom.js"></script>
+            <script src="contactform/contactform.js"></script>
+          
+    </body>
+    
+    
+</html>
