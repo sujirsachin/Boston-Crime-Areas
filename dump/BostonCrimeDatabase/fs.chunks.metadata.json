@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"BostonCrimeDatabase.fs.chunks"},{"v":2,"unique":true,"key":{"files_id":1,"n":1},"name":"files_id_1_n_1","ns":"BostonCrimeDatabase.fs.chunks"}],"uuid":"21d7bbc1339044cea9dab3ab2d3fde9e"}
